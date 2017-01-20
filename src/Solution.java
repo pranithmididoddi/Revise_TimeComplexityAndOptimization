@@ -18,18 +18,18 @@ public class Solution {
 
     }
 
-    public static Stack<Integer> sortStack(Stack<Integer> aStack) {
+    public static Stack<Integer> sortStack(Stack<Integer> nStack) {
 
         Stack<Integer> rStack=new Stack<>();
         int temp=0;
 
-        rStack.push(aStack.pop());
+        rStack.push(nStack.pop());
 
-        while(!aStack.empty()){
-            temp=aStack.pop();
+        while(!nStack.empty()){
+            temp=nStack.pop();
 
             while(!rStack.empty() && temp >rStack.peek()){
-                aStack.push(rStack.pop());
+                nStack.push(rStack.pop());
             }
             rStack.push(temp);
         }
