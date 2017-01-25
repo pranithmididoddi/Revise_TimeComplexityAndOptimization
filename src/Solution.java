@@ -35,4 +35,26 @@ public class Solution {
         }
         return rStack;
     }
+
+    /**Symmetry Check*/
+    public boolean isSymmetric(TreeNode root) {
+
+        if(root==null) return true;
+
+        if(symetryCheck(root.left,root.right)) return true;
+
+        return false;
+
+    }
+
+    public boolean symetryCheck(TreeNode p, TreeNode q){
+        if(p==null && q==null) return true;
+        if(p==null || q==null) return false;
+        if(p.val!=q.val) return false;
+        if(p.val==q.val){
+            return symetryCheck(p.left,q.right)&&symetryCheck(p.right,q.left);
+        }
+
+        return false;
+    }
 }
