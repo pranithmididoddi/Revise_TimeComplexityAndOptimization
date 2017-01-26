@@ -123,5 +123,27 @@ public class Solution {
         return false;
     }
 
+    public TreeNode invertTree(TreeNode root) {
+        if(root!=null){
+            inverted(root);
+        }
 
+        return root;
+
+
+    }
+
+    public void inverted(TreeNode root){
+        TreeNode temp=root.left;
+        root.left=root.right;
+        root.right=temp;
+
+        if(root.left!=null){
+            inverted(root.left);
+        }
+        if(root.right!=null){
+            inverted(root.right);
+        }
+
+    }
 }
