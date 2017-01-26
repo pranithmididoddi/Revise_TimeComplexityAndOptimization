@@ -57,4 +57,25 @@ public class Solution {
 
         return false;
     }
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+
+        List<Integer> list=new ArrayList<>();
+        Stack<TreeNode> stack=new Stack<>();
+
+        TreeNode p=root;
+
+        while(!stack.empty() || p!=null){
+            if(p!=null){
+                stack.push(p);
+                p=p.left;
+            }
+            else{
+                TreeNode temp=stack.pop();
+                list.add(temp.val);
+                p=temp.right;
+            }
+        }
+        return list;
+    }
 }
