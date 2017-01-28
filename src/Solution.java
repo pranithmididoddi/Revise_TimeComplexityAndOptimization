@@ -20,20 +20,21 @@ public class Solution {
 
     public static Stack<Integer> sortStack(Stack<Integer> nStack) {
 
-        Stack<Integer> rStack=new Stack<>();
+        Stack<Integer> fstack=new Stack<>();
         int temp=0;
 
-        rStack.push(nStack.pop());
+        fstack.push(nStack.pop());
 
         while(!nStack.empty()){
             temp=nStack.pop();
 
-            while(!rStack.empty() && temp >rStack.peek()){
-                nStack.push(rStack.pop());
+            while(!fstack.empty() && temp>fstack.peek()){
+                nStack.push(fstack.pop());
             }
-            rStack.push(temp);
+            fstack.push(temp);
+
         }
-        return rStack;
+        return fstack;
     }
 
     /**Symmetry Check*/
