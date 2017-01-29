@@ -28,7 +28,7 @@ public class Solution {
         while(!nStack.empty()){
             temp=nStack.pop();
 
-            while(!fstack.empty() && temp>fstack.peek()){
+            while(!fstack.empty() && temp<fstack.peek()){
                 nStack.push(fstack.pop());
             }
             fstack.push(temp);
@@ -174,5 +174,25 @@ public class Solution {
             }
         }
         return dummy.next;
+    }
+
+    public ListNode reverseList(ListNode head) {
+
+        if(head==null) return null;
+        if(head.next==null)return head;
+
+        ListNode current=head;
+        ListNode next=null;
+        ListNode previous=null;
+
+        while(current!=null){
+            next=current.next;
+            current.next=previous;
+            previous=current;
+            current=next;
+        }
+
+        return previous;
+
     }
 }
